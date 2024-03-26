@@ -45,10 +45,19 @@ const editRoom = (req,res)=>{
   res.send(room);
 };
 
-
+const deleteRoom = (req,res)=> {
+  const room = rooms.find(r => r.id===parseInt(req.params.id));
+  if(!room){
+    res.status(404).send('The room with the given Id not found');
+  }
+  const index = rooms.indexOf(room);
+  rooms.splice(index,1);
+  res.send(room);
+}
 
 module.exports = {
     getRoomById,
     addRoom,
-    editRoom
+    editRoom,
+    deleteRoom
 }
