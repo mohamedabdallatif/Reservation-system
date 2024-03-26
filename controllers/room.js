@@ -1,6 +1,16 @@
 const {rooms} = require('../models/room');
 const {validateRoom} = require('../helpers/validation');
 
+const getRoomById = (req, res) => {
+  const room = rooms.find(r => r.id===parseInt(req.params.id));
+  if(!room){
+    res.status(404).send('The room with the given Id not found');
+  }
+  else{
+    res.send(room);
+  }
+};
+
 const addRoom = (req,res)=>{
   console.log(req.body);
     const result = validateRoom(req.body);
@@ -38,6 +48,7 @@ const editRoom = (req,res)=>{
 
 
 module.exports = {
+    getRoomById,
     addRoom,
     editRoom
 }
