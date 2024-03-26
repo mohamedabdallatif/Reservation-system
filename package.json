@@ -1,0 +1,25 @@
+{
+  "name": "reservation-system",
+  "version": "1.0.0",
+  "description": "Rest API Dealing and Providing All Services and Requests from Users to reserve (flight tickets/ hotel rooms/ theatre tickets... etc)",
+  "main": "index.js",
+  "scripts": {
+    "dev": "nodemon index.js",
+    "test": "nodemon main.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mohamedabdallatif/Reservation-system.git"
+  },
+  "author": "Mohamed Mamdouh - Mohamed Abdallatif - Mostafa Shouman - Michael Mettry - Mohamed Hesham",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mohamedabdallatif/Reservation-system/issues"
+  },
+  "homepage": "https://github.com/mohamedabdallatif/Reservation-system#readme",
+  "dependencies": {
+    "express": "^4.19.2",
+    "mongoose": "^8.2.3",
+    "nodemon": "^3.1.0"
+  }
+}
