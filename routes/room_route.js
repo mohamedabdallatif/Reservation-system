@@ -7,6 +7,7 @@ const roomController = require('../controllers/room');
 
 roomRouter.post('/',roomController.addRoom);
 
+roomRouter.put('/:id',roomController.editRoom);
 
 module.exports={
     roomRouter,
