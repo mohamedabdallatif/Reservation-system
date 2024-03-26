@@ -19,6 +19,7 @@
   "homepage": "https://github.com/mohamedabdallatif/Reservation-system#readme",
   "dependencies": {
     "express": "^4.19.2",
+    "joi": "^17.12.2",
     "mongoose": "^8.2.3",
     "nodemon": "^3.1.0"
   }
