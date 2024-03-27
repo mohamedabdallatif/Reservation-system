@@ -4,8 +4,7 @@
   "description": "Rest API Dealing and Providing All Services and Requests from Users to reserve (flight tickets/ hotel rooms/ theatre tickets... etc)",
   "main": "index.js",
   "scripts": {
-    "dev": "nodemon index.js",
-    "test": "nodemon main.js"
+    "dev": "nodemon index.js"
   },
   "repository": {
     "type": "git",

@@ -2,7 +2,7 @@ const Joi = require("joi");
 
 function validateRoom (room) {
     const schema = Joi.object({
-        type: Joi.string().min(1).required()
+        'type': Joi.string().min(2).required()
       });
       return schema.validate(room); 
 }
