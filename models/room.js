@@ -1,24 +1,22 @@
-const rooms = [
-    {
-        id: 1,
-        type: "single",
-        name: "Tamer Mohsen",
-        price: 256,
-        reservationDate: new Date(),
+const {Schema, model} = require("mongoose");
+
+const roomScheme = new Schema({
+    id: {
+        type: String,
+        unique: true,
+        required: true,
     },
-    {
-        id: 2,
-        type: "double",
-        name: "Olaa Hassan",
-        price: 1590,
-        reservationDate: new Date(),
+    type: {
+        enum: ["single", "double"],
+        required: true,
+        default: "single",
     },
-    {
-        id: 3,
-        type: "triple",
-        name: "Kamal Ramy",
-        price: 963,
-        reservationDate: new Date(),
-    },
-];
-module.exports = { rooms };
+    price: {
+        type: Number,
+        required: true,
+    }
+});
+
+const Room = model("Room", roomScheme);
+
+module.exports = Room;

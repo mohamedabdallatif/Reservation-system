@@ -1,9 +1,10 @@
 {
   "name": "reservation-system",
   "version": "1.0.0",
-  "description": "Rest API Dealing and Providing All Services and Requests from Users to reserve (flight tickets/ hotel rooms/ theatre tickets... etc)",
+  "description": "Rest API Dealing and Providing All Services and Requests from Users and Admins to reserve hotel rooms",
   "main": "index.js",
   "scripts": {
+    "start": "node index.js",
     "dev": "nodemon index.js"
   },
   "repository": {
@@ -19,7 +20,10 @@
   "dependencies": {
     "express": "^4.19.2",
     "joi": "^17.12.2",
-    "mongoose": "^8.2.3",
+    "mongodb": "^6.5.0",
+    "mongoose": "^8.2.3"
+  },
+  "devDependencies": {
     "nodemon": "^3.1.0"
   }
 }
