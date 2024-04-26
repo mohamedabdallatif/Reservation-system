@@ -1,5 +1,5 @@
 const { rooms } = require("../models/room");
-const { validateRoom } = require("../helpers/validation");
+const { validateRoom } = require("../services/validation");
 
 const getRoomById = (req, res) => {
     const room = rooms.find((r) => r.id === parseInt(req.params.id));
