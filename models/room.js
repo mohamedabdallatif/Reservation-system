@@ -7,13 +7,19 @@ const roomScheme = new Schema({
         required: true,
     },
     type: {
-        enum: ["single", "double"],
+        type: String,
+        enum: ["single", "double","triple"],
         required: true,
         default: "single",
     },
+    
     price: {
         type: Number,
         required: true,
+    },
+    reserved: {
+        type: Boolean,
+        default:false
     }
 });
 
