@@ -20,7 +20,14 @@
   "dependencies": {
     "express": "^4.19.2",
     "joi": "^17.12.2",
+<<<<<<< Updated upstream
     "mongoose": "^8.2.3",
+=======
+    "mongodb": "^6.5.0",
+    "mongoose": "^8.3.2"
+  },
+  "devDependencies": {
+>>>>>>> Stashed changes
     "nodemon": "^3.1.0"
   }
 }
