@@ -1,5 +1,5 @@
-const { Reservation } = require('../models/reservation'); 
 
+const { Reservation } = require('../models/reservation'); 
 
 //* mamdouh
 async function make_reservation(req, res) {
@@ -15,6 +15,7 @@ async function edit_reservation(req, res) {
 async function cancel_reservation(req, res) {
     
 }
+
 
 const getAllReservations = async (req, res) => {
     try {
@@ -35,6 +36,7 @@ const getReservationById = async(req, res) => {
         res.status(400).send(error);
     }
 };
+
 
 
 module.exports = {

@@ -1,12 +1,27 @@
-const rooms =[
-    {
-        id:1,type:"single"
+const { Schema, model } = require("mongoose");
+
+const roomScheme = new Schema({
+    id: {
+        type: String,
+        unique: true,
+        required: true,
     },
-    {
-        id:2,type:"double"
+    type: {
+        type: String,
+        enum: ["single", "double", "triple"],
+        required: true,
+        default: "single",
     },
-    {
-        id:3,type:"triple"
-    }
-]
-module.exports = {rooms};
+    price: {
+        type: Number,
+        required: true,
+    },
+    reserved: {
+        type: Boolean,
+        default: false,
+    },
+});
+
+const Room = model("Room", roomScheme);
+
+module.exports = Room;
