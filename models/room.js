@@ -1,4 +1,4 @@
-const {Schema, model} = require("mongoose");
+const { Schema, model } = require("mongoose");
 
 const roomScheme = new Schema({
     id: {
@@ -8,19 +8,18 @@ const roomScheme = new Schema({
     },
     type: {
         type: String,
-        enum: ["single", "double","triple"],
+        enum: ["single", "double", "triple"],
         required: true,
         default: "single",
     },
-    
     price: {
         type: Number,
         required: true,
     },
     reserved: {
         type: Boolean,
-        default:false
-    }
+        default: false,
+    },
 });
 
 const Room = model("Room", roomScheme);
