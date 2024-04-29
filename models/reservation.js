@@ -1,7 +1,7 @@
 const { Schema, model } = require("mongoose");
 
 const reservationScheme = new Schema({
-    id: {
+    _id: {
         type: String,
         unique: true,
         required: true,
