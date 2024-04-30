@@ -85,7 +85,7 @@ async function cancel_reservation(req, res) {}
 //* mostafa
 async function get_all_reservations(req, res) {
     try {
-        const allReservations = await Reservation.find();
+        const allReservations = await Reservation.find({title: req.params.title});
         res.status(200).send(allReservations);
     } catch (error) {
         res.status(400).send(error);
@@ -96,6 +96,7 @@ async function get_all_reservations(req, res) {
 async function get_reservation_details(req, res) {
     try {
         const oneReservation = await Reservation.findOne({
+            title: req.params.title,
             _id: req.params.id,
         });
         res.status(200).send(oneReservation);
