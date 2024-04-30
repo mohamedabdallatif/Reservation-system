@@ -9,9 +9,9 @@ userRouter.post("/", userController.make_reservation);
 userRouter.put("/:title", userController.edit_reservation);
 
 // get all user reservation
-userRouter.get("/", userController.get_all_reservations);
+userRouter.get("/:title", userController.get_all_reservations);
 
 // get user reservation by id
-userRouter.get("/:id", userController.get_reservation_details);
+userRouter.get("/:title/:id", userController.get_reservation_details);
 
 module.exports = userRouter;
