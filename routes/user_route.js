@@ -14,4 +14,7 @@ userRouter.get("/:title", userController.get_all_reservations);
 // get user reservation by id
 userRouter.get("/:title/:id", userController.get_reservation_details);
 
+// cancel reservation
+userRouter.delete("/:title", userController.cancel_reservation);
+
 module.exports = userRouter;
