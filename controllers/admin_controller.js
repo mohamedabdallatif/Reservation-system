@@ -17,9 +17,9 @@ async function get_room_details(req, res) {
         const roomDetails = await Room.findOne({
             _id: req.params.id,
         });
+        if (!roomDetails) return res.status(404).send("Room not found");
         res.status(200).send(roomDetails);
-    }
-    catch (error){
+    } catch (error) {
         res.status(400).send(error);
     }
 }
@@ -30,21 +30,17 @@ async function edit_room_details(req, res) {
         const roomDetails = await Room.findOne({
             _id: req.params.id,
         });
-        if(!roomDetails){
-
+        if (!roomDetails) {
             return res.status(404).send("Room not found");
         }
-        if(req.body.type)
-            roomDetails.type = req.body.type;ء
-        if(req.body.price)
-            roomDetails.price = req.body.price;
-        if(req.body.reserved) 
-            roomDetails.reserved = req.body.reserved;
+        if (req.body.type) roomDetails.type = req.body.type;
+        ء;
+        if (req.body.price) roomDetails.price = req.body.price;
+        if (req.body.reserved) roomDetails.reserved = req.body.reserved;
 
         await roomDetails.save();
         res.status(200).send(roomDetails);
-    }
-    catch (error){
+    } catch (error) {
         res.status(400).send(error);
     }
 }
@@ -55,14 +51,13 @@ async function empty_room(req, res) {
         const roomDetails = await Room.findOne({
             _id: req.params.id,
         });
-        if(!roomDetails){
-           return res.status(404).send("Room not found");
+        if (!roomDetails) {
+            return res.status(404).send("Room not found");
         }
         roomDetails.reserved = false;
         await roomDetails.save();
         res.status(200).send(roomDetails);
-    }
-    catch (error){
+    } catch (error) {
         res.status(400).send(error);
     }
 }
@@ -95,5 +90,5 @@ module.exports = {
     edit_room_details,
     empty_room,
     view_all_reservations,
-    get_reservation
-}
+    get_reservation,
+};
