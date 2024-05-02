@@ -80,7 +80,8 @@ async function edit_reservation(req, res) {
 }
 
 //* hesham
-async function cancel_reservation(req, res) {}
+async function cancel_reservation(req, res) {
+}
 
 //* mostafa
 async function get_all_reservations(req, res) {
