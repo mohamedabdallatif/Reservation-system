@@ -5,19 +5,19 @@ const Room = require("../models/room");
 async function view_all_rooms(req, res) {
     try {
         // Find all rooms
-        const allRooms = await Room.find();
+        const allRooms = await Room.find({});
         res.status(200).send(allRooms);
     } catch (error) {
+        console.log(error);
         res.status(400).send(error);
     }
+}
 
 //* michael
 async function get_room_details(req, res) {
     try {
-        const roomDetails = await Room.findOne({
-            _id: req.params.id,
-        });
-        if (!roomDetails) return res.status(404).send("Room not found");
+        const roomDetails = await Room.findOne({ _id: req.params.id });
+        if (!roomDetails) return res.status(400).send("Room not found");
         res.status(200).send(roomDetails);
     } catch (error) {
         res.status(400).send(error);
@@ -33,11 +33,10 @@ async function edit_room_details(req, res) {
         if (!roomDetails) {
             return res.status(404).send("Room not found");
         }
-        if (req.body.type) roomDetails.type = req.body.type;
-        ء;
-        if (req.body.price) roomDetails.price = req.body.price;
-        if (req.body.reserved) roomDetails.reserved = req.body.reserved;
-
+        roomDetails.type = req.body.type ?? roomDetails.type;
+        roomDetails.price = req.body.price ?? roomDetails.price;
+        roomDetails.reserved = req.body.reserved ?? roomDetails.reserved;
+        
         await roomDetails.save();
         res.status(200).send(roomDetails);
     } catch (error) {

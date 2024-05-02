@@ -66,7 +66,7 @@ async function edit_reservation(req, res) {
             return res.status(400).send({
                 error: validationResult.error,
             });
-        
+
         // update values by req.body
         user_reservation.time = req.body.time ?? user_reservation.time;
         user_reservation.board = req.body.board ?? user_reservation.board;
@@ -103,7 +103,7 @@ async function cancel_reservation(req, res) {
         await room.save();
 
         // Remove the reservation
-        await user_reservation.remove();
+        await Reservation.deleteOne({ title: req.params.title });
 
         res.status(200).send({ message: "Reservation canceled successfully" });
     } catch (error) {
@@ -115,7 +115,9 @@ async function cancel_reservation(req, res) {
 //* mostafa
 async function get_all_reservations(req, res) {
     try {
-        const allReservations = await Reservation.find({title: req.params.title});
+        const allReservations = await Reservation.find({
+            title: req.params.title,
+        });
         res.status(200).send(allReservations);
     } catch (error) {
         res.status(400).send(error);
