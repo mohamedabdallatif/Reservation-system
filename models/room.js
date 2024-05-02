@@ -1,11 +1,6 @@
 const { Schema, model } = require("mongoose");
 
 const roomScheme = new Schema({
-    id: {
-        type: String,
-        unique: true,
-        required: true,
-    },
     type: {
         type: String,
         enum: ["single", "double", "triple"],
