@@ -1,9 +1,11 @@
 const express = require("express");
-const app = express();
-app.use(express.json());
+const userRouter = require("./routes/user_route");
+const adminRouter = require("./routes/admin_route");
 
-const {roomRouter}=require('./routes/room_route')
-app.use('/api/rooms/',roomRouter);
-module.exports={
-    app
-}
+const app = express();
+
+app.use(express.json());
+app.use("/api/users/", userRouter);
+app.use("/api/admins/", adminRouter);
+
+module.exports = app;
