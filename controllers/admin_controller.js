@@ -1,8 +1,15 @@
 const Reservation = require("../models/reservation");
 const Room = require("../models/room");
+
 //* hesham
 async function view_all_rooms(req, res) {
-}
+    try {
+        // Find all rooms
+        const allRooms = await Room.find();
+        res.status(200).send(allRooms);
+    } catch (error) {
+        res.status(400).send(error);
+    }
 
 //* michael
 async function get_room_details(req, res) {

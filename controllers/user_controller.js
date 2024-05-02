@@ -81,6 +81,35 @@ async function edit_reservation(req, res) {
 
 //* hesham
 async function cancel_reservation(req, res) {
+    try {
+        // Find the reservation by title
+        const user_reservation = await Reservation.findOne({
+            title: req.params.title,
+        });
+        if (!user_reservation)
+            return res.status(400).send({
+                error: "The reservation with the given title not found",
+            });
+
+        // Find the room associated with the reservation
+        const room = await Room.findById(user_reservation.roomId);
+        if (!room)
+            return res.status(400).send({
+                error: "Associated room not found",
+            });
+
+        // Mark the room as not reserved
+        room.reserved = false;
+        await room.save();
+
+        // Remove the reservation
+        await user_reservation.remove();
+
+        res.status(200).send({ message: "Reservation canceled successfully" });
+    } catch (error) {
+        console.log(error);
+        res.status(400).send(error);
+    }
 }
 
 //* mostafa
@@ -98,6 +127,7 @@ async function get_reservation_details(req, res) {
     try {
         const oneReservation = await Reservation.findOne({
             title: req.params.title,
+            _id: req.params.id,
             roomId: req.params.id,
         });
         res.status(200).send(oneReservation);
