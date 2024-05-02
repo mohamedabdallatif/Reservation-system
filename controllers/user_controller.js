@@ -98,7 +98,7 @@ async function get_reservation_details(req, res) {
     try {
         const oneReservation = await Reservation.findOne({
             title: req.params.title,
-            _id: req.params.id,
+            roomId: req.params.id,
         });
         res.status(200).send(oneReservation);
     } catch (error) {
